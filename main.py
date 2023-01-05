@@ -34,9 +34,9 @@ if __name__ == '__main__':
     
     load_dotenv()
     token = os.environ['BITLY_TOKEN']
-    argstring_parsed = argparse.ArgumentParser()
-    argstring_parsed.add_argument('link')
-    url = argstring_parsed.parse_args().link
+    parser = argparse.ArgumentParser()
+    parser.add_argument('link')
+    url = parser.parse_args().link
     if is_bitlink(token, url):
         print('Количество ссылок: ', count_clicks(token, url))
     else:
